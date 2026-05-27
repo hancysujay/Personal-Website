@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Hancy Sujay</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    font-family: Inter, Arial, sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(255,255,255,0.03), transparent 30%),
+      #0b0b0b;
+    color:#f3f3f3;
+    overflow-x:hidden;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+  }
+
+  nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    backdrop-filter:blur(18px);
+    background:rgba(10,10,10,0.7);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:1.2rem 2rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .logo{
+    font-size:1.1rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:2rem;
+  }
+
+  .nav-links a{
+    color:#bdbdbd;
+    text-decoration:none;
+    transition:0.3s;
+    font-size:0.95rem;
+  }
+
+  .nav-links a:hover{
+    color:white;
+  }
+
+  section{
+    max-width:1200px;
+    margin:auto;
+    padding:120px 2rem;
+  }
+
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+  }
+
+  .hero-content{
+    max-width:760px;
+  }
+
+  .hero-tag{
+    display:inline-block;
+    padding:0.5rem 1rem;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:999px;
+    background:rgba(255,255,255,0.04);
+    color:#cfcfcf;
+    margin-bottom:1.5rem;
+    font-size:0.9rem;
+  }
+
+  .hero h1{
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:1.5rem;
+    letter-spacing:-3px;
+  }
+
+  .hero p{
+    color:#aaaaaa;
+    font-size:1.15rem;
+    line-height:1.8;
+    max-width:650px;
+  }
+
+  .hero-buttons{
+    margin-top:2.5rem;
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    padding:0.9rem 1.5rem;
+    border-radius:14px;
+    text-decoration:none;
+    transition:0.3s;
+    font-weight:600;
+  }
+
+  .btn-primary{
+    background:white;
+    color:black;
+  }
+
+  .btn-primary:hover{
+    transform:translateY(-2px);
+  }
+
+  .btn-secondary{
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
+    background:rgba(255,255,255,0.03);
+  }
+
+  .btn-secondary:hover{
+    background:rgba(255,255,255,0.08);
+  }
+
+  .section-title{
+    font-size:2.2rem;
+    margin-bottom:3rem;
+    letter-spacing:-1px;
+  }
+
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;
+  }
+
+  .card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:24px;
+    padding:2rem;
+    transition:0.35s ease;
+    backdrop-filter:blur(10px);
+  }
+
+  .card:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,0.06);
+    border-color:rgba(255,255,255,0.16);
+  }
+
+  .card h3{
+    font-size:1.3rem;
+    margin-bottom:1rem;
+  }
+
+  .card p{
+    color:#b0b0b0;
+    line-height:1.7;
+  }
+
+  .about-box{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:30px;
+    padding:3rem;
+    max-width:850px;
+  }
+
+  .about-box p{
+    color:#b9b9b9;
+    line-height:1.9;
+    font-size:1.05rem;
+  }
+
+  footer{
+    padding:3rem 2rem;
+    text-align:center;
+    color:#6d6d6d;
+    border-top:1px solid rgba(255,255,255,0.06);
+  }
+
+  @media(max-width:768px){
+
+    .hero h1{
+      font-size:3rem;
+      letter-spacing:-2px;
+    }
+
+    .nav-links{
+      gap:1rem;
+    }
+
+    .nav-links a{
+      font-size:0.85rem;
+    }
+
+    .about-box{
+      padding:2rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">Hancy Sujay</div>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+
+    <div class="hero-tag">
+      Game Developer • Creative Technologist
+    </div>
+
+    <h1>
+      Building immersive digital experiences.
+    </h1>
+
+    <p>
+      Focused on gameplay systems, atmosphere,
+      storytelling, and creative technology.
+      This space showcases projects, experiments,
+      and development work centered around interactive design.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#about" class="btn btn-secondary">About Me</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Selected Projects</h2>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>Atmospheric Prototype</h3>
+
+      <p>
+        Exploration of cinematic gameplay,
+        environmental storytelling, and immersive pacing
+        inspired by narrative-driven experiences.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Combat Systems</h3>
+
+      <p>
+        Gameplay experimentation focused on responsiveness,
+        animation feel, combat rhythm, and player feedback loops.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Worldbuilding Tools</h3>
+
+      <p>
+        Internal workflows and development tools designed
+        to improve iteration speed and creative flexibility.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About</h2>
+
+  <div class="about-box">
+    <p>
+      I’m a developer interested in building experiences
+      that combine strong aesthetics, engaging mechanics,
+      and thoughtful design direction.
+      <br><br>
+      My work explores the intersection between gameplay,
+      visual atmosphere, interaction design, and technical execution.
+      This website acts as a curated space for ongoing projects,
+      experiments, and creative development.
+    </p>
+  </div>
+</section>
+
+<section id="blog">
+  <h2 class="section-title">Writing & Notes</h2>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>Design Observations</h3>
+
+      <p>
+        Thoughts on pacing, immersion, mechanics,
+        environmental storytelling, and emotional design.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Development Logs</h3>
+
+      <p>
+        Technical notes, workflow breakdowns,
+        iteration processes, and production experiments.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Hancy Sujay — Portfolio Website
+</footer>
+
+</body>
+</html>
